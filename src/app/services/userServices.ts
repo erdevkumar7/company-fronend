@@ -1,4 +1,5 @@
 import { LoginHeader } from "@/common/authToken";
+import { API } from "@/config/config";
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
@@ -55,7 +56,7 @@ export const HandleLogin = async (reqData: any) => {
 export const HandleProfile = async (userId: any) => {
   return await axios({
     method: "GET",
-    url: `${BASE_URL}/getuser/${userId}`,
+    url: `${BASE_URL}/user/${userId}`,
     headers: LoginHeader(),
   })
     .then((request) => {
@@ -66,6 +67,29 @@ export const HandleProfile = async (userId: any) => {
         HandleLogout();
       } else {
         toast.error("Something went wrong");
+      }
+      return error;
+    });
+};
+
+export const HandleUpdateProfile = async (userId: number, reqData: any) => {
+  return await axios({
+    method: "PUT",
+    url: `${API.user}/${userId}`,
+    headers: LoginHeader(),
+    data: reqData,
+  })
+    .then((request) => {
+      toast.success("Profile updated");
+      return request;
+    })
+    .catch((error) => {
+      if (error.response.status === 400) {
+        toast.error("Email already exists");
+      } else if (error.response.status === 401) {
+        HandleLogout();
+      } else {
+        toast.error("User added failed");
       }
       return error;
     });

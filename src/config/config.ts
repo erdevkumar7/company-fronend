@@ -8,10 +8,7 @@ export const BASE_URL = "http://localhost:8080";
 
 export const API = {
   // Admin URLS
-  register: `${BASE_URL}/user`,
+  user: `${BASE_URL}/user`,
   login: `${BASE_URL}/login`,
-
-  // STUDENT URLS
-  student: `${BASE_URL}/student`
 
 };

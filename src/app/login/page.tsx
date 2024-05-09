@@ -52,7 +52,7 @@ export default function Login() {
             "userData",
             JSON.stringify(res.data.userDetails)
           );
-          router.push("/admin");
+          router.push("/profile");
         }
         setLoading(false);
       })
@@ -181,7 +181,7 @@ export default function Login() {
                   Don&lsquo;t have an account?
                   <Link href="/registration" style={{ color: "#1976d2" }}>
                     {" "}
-                    Create Now
+                    Register
                   </Link>
                 </Grid>
               </Grid>
