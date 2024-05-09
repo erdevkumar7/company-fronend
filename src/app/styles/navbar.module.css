@@ -1,0 +1,29 @@
+.combineContentAndSidebar {
+    height: 100%;
+    display: flex;
+    top: 65px;
+    width: 100%;
+  }
+
+  .siteBodyContainer {
+    padding: 10px !important;
+    width: 100% !important;
+    background: #685f600d !important;
+  }
+
+  .booksIdCSS {
+     display: flex;
+     justify-content: center;
+     align-items: center; 
+     height: 100vh;
+     width: 100vw;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    min-height: 100vh;
+  }
