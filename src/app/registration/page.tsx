@@ -180,8 +180,8 @@ export default function Registration() {
                           label="Company Name"
                           {...register("company_name")}
                         />
-                        {errors && errors.company
-                          ? ErrorShowing(errors?.company?.message)
+                        {errors && errors.company_name
+                          ? ErrorShowing(errors?.company_name?.message)
                           : ""}
                       </Grid>
 
@@ -192,8 +192,8 @@ export default function Registration() {
                           label="Company Email"
                           {...register("company_email")}
                         />
-                        {errors && errors.company
-                          ? ErrorShowing(errors?.company?.message)
+                        {errors && errors.company_email
+                          ? ErrorShowing(errors?.company_email?.message)
                           : ""}
                       </Grid>
 
@@ -273,6 +273,7 @@ export default function Registration() {
         </Grid>
         <ToastContainer />
       </Grid>
+      <ToastContainer />
     </ThemeProvider>
   );
 }

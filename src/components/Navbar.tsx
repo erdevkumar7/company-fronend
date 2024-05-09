@@ -172,7 +172,6 @@ export default function Navbar({ cartData }: any) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {/* <Box>navbar getting cartData: {cartData?.title} </Box> */}
 
       <AppBar position="static" className={styles.appBarCss}>
         <Toolbar>
