@@ -52,7 +52,9 @@ export default function Login() {
             "userData",
             JSON.stringify(res.data.userDetails)
           );
-          router.push("/profile");
+          setTimeout(()=>{
+            router.push("/profile");
+          },2500)
         }
         setLoading(false);
       })

@@ -20,9 +20,8 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import { LoadingButton } from "@mui/lab";
-// validation import
-// import { userProfileValidations } from "@/validation_schema/profileValidation";
 
+// validation import
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer } from "react-toastify";
 // Types Import
@@ -37,13 +36,14 @@ import { capitalizeFirstLetter } from "@/common/capitalizFirstLetter";
 // API services
 import { HandleProfile, HandleUpdateProfile } from "../services/userServices";
 import { isAuthenticated } from "@/common/authToken";
+// import { userProfileValidations } from "@/validation_schema/profileValidation";
 
 export default function Profile() {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isLoadingButton, setLoadingButton] = useState<boolean>(false);
   const [getUserData, setUserData] = useState<userType | null>(null);
   const [toggle, setToggle] = useState<boolean>(false);
-  const [previewProfile, setPreviewProfile] = useState<string | any>("");
+ 
   
 
   console.log(getUserData);
@@ -114,7 +114,6 @@ export default function Profile() {
         "company_email",
       ];
       fields.forEach((field) => setValue(field, user.data[field]));
-      // setValue("role_id",user.data['role_id'] === "1" ? "Admin" : "Learner")
       setLoading(false);
       if (typeof window !== "undefined") {
         localData1 = window.localStorage.getItem("userData");

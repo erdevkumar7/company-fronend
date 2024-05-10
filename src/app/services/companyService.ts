@@ -6,10 +6,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { HandleLogout } from "./userServices";
 
 
-export const HandleUpdateCompany = async (userId: number, reqData: any) => {
+export const HandleUpdateCompany = async (companyId: number, reqData: any) => {
   return await axios({
     method: "PUT",
-    url: `${API.company}/${userId}`,
+    url: `${API.company}/${companyId}`,
     headers: LoginHeader(),
     data: reqData,
   })

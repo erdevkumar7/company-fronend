@@ -4,12 +4,11 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
 
-export const BASE_URL = "http://localhost:8080";
 
 export const HandleRegister = async (reqData: any) => {
   return await axios({
     method: "POST",
-    url: `${BASE_URL}/user`,
+    url: `${API.user}`,
     data: reqData,
   }).then((request) => {
     console.log('request',request)
@@ -34,7 +33,7 @@ export const HandleRegister = async (reqData: any) => {
 export const HandleLogin = async (reqData: any) => {
   return await axios({
     method: "POST",
-    url: `${BASE_URL}/login`,
+    url: `${API.login}`,
     data: reqData,
   }).then((request) => {
     toast.success("Login Successfull");
@@ -57,7 +56,7 @@ export const HandleLogin = async (reqData: any) => {
 export const HandleProfile = async (userId: any) => {
   return await axios({
     method: "GET",
-    url: `${BASE_URL}/user/${userId}`,
+    url: `${API.user}/${userId}`,
     headers: LoginHeader(),
   })
     .then((request) => {
