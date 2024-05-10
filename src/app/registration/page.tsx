@@ -39,7 +39,7 @@ export default function Registration() {
 
     // Submission of Registration Form
   const onSubmit = async (event: any) => {
-    console.log(event)
+    // console.log(event)
     setLoading(true);
     try {
       const res = await HandleRegister(event);

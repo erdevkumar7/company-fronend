@@ -20,9 +20,7 @@ export const userRegistrationValidations = Yup.object({
             .matches(/^[A-Za-z ]*$/, 'Please enter valid name'),
 
     address:
-        Yup.string().required('Address is a required field')
-            .min(3, "Address must be at least 3 characters")
-            .matches(/^[A-Za-z ]*$/, 'Please enter valid address'),
+        Yup.string().required('Address is a required field'),
     email:
         Yup.string().required('Email is a required field')
             .matches(emailRules, "Email must be a valid email")

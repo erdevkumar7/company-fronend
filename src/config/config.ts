@@ -10,5 +10,6 @@ export const API = {
   // Admin URLS
   user: `${BASE_URL}/user`,
   login: `${BASE_URL}/login`,
+  company: `${BASE_URL}/company`,
 
 };
