@@ -1,7 +1,8 @@
 "use client";
 // React Import
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useForm } from "react-hook-form";
+import { redirect } from "next/navigation";
 // MUI Import
 import {
   Button,
@@ -35,6 +36,7 @@ import CircularProgressBar from "@/common/CircularProcess/circularProgressBar";
 import { capitalizeFirstLetter } from "@/common/capitalizFirstLetter";
 // API services
 import { HandleProfile, HandleUpdateProfile } from "../services/userServices";
+import { isAuthenticated } from "@/common/authToken";
 
 export default function Profile() {
   const [isLoading, setLoading] = useState<boolean>(false);
@@ -54,6 +56,14 @@ export default function Profile() {
   } = useForm<userType | any>({
     // resolver: yupResolver(userProfileValidations),
   });
+
+   // check the login usability if not not access the page
+   useLayoutEffect(() => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      redirect("/login");
+    }
+  }, []);
 
   useEffect(() => {
     let localData: any;

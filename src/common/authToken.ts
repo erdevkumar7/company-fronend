@@ -9,7 +9,7 @@ export function authHeader() {
 
 export function LoginHeader() {
     const getToken: any = localStorage.getItem("loginToken");
-    const authToken: any = localStorage.getItem("authToken");
+    const authToken: any = localStorage.getItem("loginToken");
 
     if (getToken) {
         return { logintoken: `${getToken}`, Authorization: `Bearer ${authToken}` };

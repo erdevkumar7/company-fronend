@@ -37,12 +37,13 @@ export const HandleLogin = async (reqData: any) => {
     url: `${BASE_URL}/login`,
     data: reqData,
   }).then((request) => {
+    toast.success("Login Successfull");
     return request;
   }).catch((error) => {
     if (error.response.status === 400) {
-      toast.error(error.response.data)
+      toast.error(`Incorrect Password!`)
     } else if (error.response.status === 404) {
-      toast.error(error.response.data)
+      toast.error(`User not found with this Email!`)
     } else if (error.response.status === 401) {
       HandleLogout()
     } else {
@@ -63,11 +64,8 @@ export const HandleProfile = async (userId: any) => {
       return request;
     })
     .catch((error) => {
-      if (error.response.status === 401) {
+      toast.error("Something went wrong");
         HandleLogout();
-      } else {
-        toast.error("Something went wrong");
-      }
       return error;
     });
 };
