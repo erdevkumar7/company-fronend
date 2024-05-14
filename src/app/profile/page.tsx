@@ -8,10 +8,6 @@ import {
   Button,
   TextField,
   Grid,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   IconButton,
   Card,
   Box,
@@ -22,7 +18,6 @@ import EditIcon from "@mui/icons-material/Edit";
 import { LoadingButton } from "@mui/lab";
 
 // validation import
-import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer } from "react-toastify";
 // Types Import
 import { userType } from "../types/userType";
@@ -32,11 +27,10 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "@/components/Navbar";
 import SpinnerProgress from "@/common/spinnerPgress";
 import CircularProgressBar from "@/common/CircularProcess/circularProgressBar";
-import { capitalizeFirstLetter } from "@/common/capitalizFirstLetter";
+
 // API services
 import { HandleProfile, HandleUpdateProfile } from "../services/userServices";
 import { isAuthenticated } from "@/common/authToken";
-// import { userProfileValidations } from "@/validation_schema/profileValidation";
 
 export default function Profile() {
   const [isLoading, setLoading] = useState<boolean>(false);
@@ -54,7 +48,6 @@ export default function Profile() {
     setValue,
     formState: { errors },
   } = useForm<userType | any>({
-    // resolver: yupResolver(userProfileValidations),
   });
 
    // check the login usability if not not access the page

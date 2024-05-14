@@ -96,6 +96,5 @@ export const HandleUpdateProfile = async (userId: number, reqData: any) => {
 export const HandleLogout = () => {
   localStorage.clear()
   window.location.replace("/login");
-  // GenerateToken()
 
 };
